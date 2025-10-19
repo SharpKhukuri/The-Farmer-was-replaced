@@ -14,8 +14,8 @@ It is a hands on experience on what you learn throught tutorials <br/>
 # To Do List <br/>
 </p>
 
-[ ] Unlocking automation (Work in Progress)<br/>
-[ ] merge clearing and tilling<br/>
+[ ] Unlocking automation (POSTPONED: Need to create better logic)<br/>
+[ ] merge clearing and tilling(WIP)<br/>
 [ ] automate what to farm<br/>
 [ ] unlock entities to max<br/>
 [ ] Fastest way to a coordinate<br/>
