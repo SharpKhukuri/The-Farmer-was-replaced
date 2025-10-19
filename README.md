@@ -13,7 +13,8 @@ It is a hands on experience on what you learn throught tutorials <br/>
 <p align="center">
 
 # Current Status <br/>
-
+- [X] Can farm Hay, Wood, Carrot
+- [X] Can farm Pumpking, Cactus and Wierd substance BUT inefficiently. Just basic farm 
 </p>
 
 
