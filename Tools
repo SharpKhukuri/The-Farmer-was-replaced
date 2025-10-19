@@ -1,0 +1,123 @@
+def pick_items(a):
+	items_pick = {
+		Entities.Grass:Items.Hay,
+		Entities.Tree:Items.Wood,
+		Entities.Bush:Items.Wood,
+		Entities.Carrot:Items.Carrot,
+		Entities.Pumpkin:Items.Pumpkin,
+		Entities.Cactus:Items.Cactus,
+		Entities.Sunflower:Items.Power,
+	}
+	chosen_item = items_pick[a]
+	return chosen_item
+	
+	
+
+
+#unlcoking specific level
+def unlocking(d):
+	
+	grass_level = get_cost(d)
+	
+	for item in grass_level:
+		if num_items(item) > grass_level[item]:
+			unlock(Unlocks.Grass)
+			quick_print("***************UNLOCKED NEW LEVEL")
+	return unlocking(True)
+
+#moves drone to the origin no extra action
+def move_origin():
+	quick_print("Moving to Origin.......")
+	while get_pos_x() > 0:
+		move(West)
+	while get_pos_y() > 0:
+		move(South)
+	quick_print("Done!")
+	return
+
+#check water level
+def water_level():
+	#quick_print("Water Level is:", get_water())
+	return get_water() < 0.2
+	
+
+
+
+#its moves around the map and only harvests	
+def only_harvest():
+	quick_print("Clearing Field: Harvesting previous farm......")
+	for i in range(get_world_size()):
+		for j in range(get_world_size()):
+			harvest()
+			move(North)
+		move(East)
+	quick_print("Done!")
+	return
+	
+	
+#harvest everything and moves cursor to origin without changing ground
+def clear_field():
+	only_harvest()
+	move_origin()
+	return
+
+#check if the ground is tilled	
+def is_tilled():
+	return get_ground_type() == Grounds.Soil
+
+#check each tile and till everything
+def till_everything():
+	quick_print("Tilling all Tiles......")
+	for i in range(get_world_size()):
+			for j in range(get_world_size()):
+				if not is_tilled():
+					till()
+				move(North)
+			move(East)
+	quick_print("Done!")
+	return
+	
+#check ground type before farm
+def check_ground(plant_type):
+	if plant_type == Entities.Grass:
+		clear()
+	else:
+		till_everything()	
+	return
+	
+
+#Farm chosen plant
+def farm(plant_type):
+	
+	if plant_type != Entities.Tree:	
+		for i in range(get_world_size()):
+			for j in range(get_world_size()):
+				if can_harvest():
+					harvest()
+					plant(plant_type)
+				else:
+					plant(plant_type)
+				if water_level():
+					use_item(Items.Water)	
+				move(North)
+			move(East)
+	else:
+		for i in range(get_world_size()):
+			for j in range(get_world_size()):
+				if (get_pos_x() + get_pos_y()) % 2 == 0:
+					if can_harvest():
+						harvest()
+					plant(Entities.Tree)
+				else:
+					if can_harvest():
+						harvest()
+					plant(Entities.Carrot)		
+				if water_level():
+					use_item(Items.Water)	
+				move(North)
+			move(East)	
+	quick_print("Round Cleared!")
+	return get_time()
+		
+
+			
