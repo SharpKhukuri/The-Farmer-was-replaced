@@ -15,10 +15,10 @@ It is a hands on experience on what you learn throught tutorials <br/>
 </p>
 
 [ ] Unlocking automation (POSTPONED: Need to create better logic)<br/>
-[ ] merge clearing and tilling(WIP)<br/>
+[X] merge clearing and tilling(WIP)<br/>
 [ ] automate what to farm<br/>
 [ ] unlock entities to max<br/>
-[ ] Fastest way to a coordinate<br/>
+[X] Fastest way to a coordinate<br/>
 [ ] Farm pumpkin efficiently<br/>
 [ ] Farm Sunflower efficiently<br/>
 [ ] Farm Cactus efficiently<br/>
