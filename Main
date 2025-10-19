@@ -1,0 +1,72 @@
+import Tools
+
+#autounlocking
+#def autounlocking():
+	#value = unlock_dict[items_pick]
+	#if len(value) > 1:
+		#for i in range(len(value)):
+			#if unlock(value[i]):
+				#unlock(value[i])
+	#return
+
+#Choose what to farm: later automate this
+farming_entities = Entities.Sunflower
+
+#Dictionary for entities and items
+#items_pick = {
+	##Entities.Grass:Items.Hay,
+	#Entities.Tree:Items.Wood,
+	#Entities.Bush:Items.Wood,
+	#Entities.Carrot:Items.Carrot,
+	#Entities.Pumpkin:Items.Pumpkin,
+	#Entities.Cactus:Items.Cactus,
+	#Entities.Sunflower:Items.Power,
+#}
+#farming_item = items_pick[farming_entities]
+farming_item = Tools.pick_items(farming_entities)
+
+#Dictionary for unlocking
+if farming_item != Items.Power:
+	unlock_dict = {Items.hay:[Unlocks.Speed, Unlocks.Trees],
+		Items.Wood:[Unlocks.Carrots, Unlocks.Watering, Unlocks.Fertilizer],
+		Items.Carrot:Unlocks.Pumpkins, 
+		Items.Pumpkin:[Unlocks.Expand, Unlocks.Cactus],
+		Items.Cactus:[Unlocks.Mazes, Unlocks.Dinosaurs],
+		Items.Bone:Unlocks.Polyculture,
+		Items.Gold:Unlocks.Megafarm,
+	}
+	unlock_name = unlock_dict[farming_item]   #has multiple values
+	
+
+
+	
+quick_print("We are farming", farming_entities)
+
+
+#farming preparation
+Tools.clear_field()
+Tools.check_ground(farming_entities)
+
+#variables for time and item count
+current_item_count = num_items(farming_item)
+time_memory = get_time()
+
+#Farming code
+while True:
+	quick_print("********************************************")
+	quick_print("Farming", farming_item, "........")
+	
+	time_latest = Tools.farm(farming_entities)
+	total_time = time_latest - time_memory
+	quick_print("Total Time for this round=", total_time)
+	time_memory = time_latest
+	
+	new_item_count = num_items(farming_item)
+	quick_print("Harvest this round-", farming_item, ":", new_item_count - current_item_count)
+	quick_print("New", farming_item, "count = ", new_item_count)
+	current_item_count = new_item_count
+	
+	#Tools.unlocking(farming_item)
+	
+	
+	
