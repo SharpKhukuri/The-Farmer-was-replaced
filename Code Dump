@@ -1,0 +1,114 @@
+#Unlocking Dict
+	
+
+unlock_dict = {Items.hay:[Unlocks.Speed, Unlocks.Trees],
+	Items.Wood:[Unlocks.Carrots, Unlocks.Watering, Unlocks.Fertilizer],
+	Items.Carrot:Unlocks.Pumpkins, 
+	Items.Pumpkin:[Unlocks.Expand, Unlocks.Cactus],
+	Items.Cactus:[Unlocks.Mazes, Unlocks.Dinosaurs],
+	Items.Bone:Unlocks.Polyculture,
+	Items.Gold:Unlocks.Megafarm,
+}
+
+unlock_list = [Unlocks.Speed,
+	Unlocks.Grass,
+	Unlocks.Expand,
+	Unlocks.Carrots,
+	Unlocks.Watering,
+	Unlocks.Trees,
+	Unlocks.Fertilizer,
+	Unlocks.Pumpkins,
+	Unlocks.Mazes,
+	Unlocks.Cactus,
+	Unlocks.Polyculture,
+	Unlocks.Megafarm,
+	Unlocks.Dinosaurs,
+]
+
+items_pick = Items.Wood
+next_unlock = "Empty"
+
+def test():
+	#search item in the dict
+	value = unlock_dict[items_pick]
+	a = len(value)
+	#check if multiple unlocks// unlock the first one
+	if len(value) > 1:
+		for unl in range(len(value)):
+			
+			if unlock(value[unl]):
+				next_unlock = value[unl]
+			else:
+				next_unlock = "Empty"
+	else:
+		next_unlock = value
+		
+	return next_unlock
+
+#autounlocking
+#def autounlocking():
+	#value = unlock_dict[items_pick]
+	#if len(value) > 1:
+		#for i in range(len(value)):
+			#if unlock(value[i]):
+				#unlock(value[i])
+	#return
+
+#unlock check  // No Unlock SKIP
+	if not next_unlock == "No unlock":
+		if get_cost(next_unlock) > num_items(farming_item):
+			quick_print("Number of", farming_item, "required for next Unlock:", get_cost(next_unlock) - num_items(farming_item))
+		else:
+			if unlock(next_unlock):
+				unlock(next_unlock)
+			else:
+				quick_print("CHECK THIS CODE HERE ################################################")		
+
+
+# Choose which unlock to focus
+def unlock_choose(unlock_name):
+	#search item in the dict
+	quick_print(len(unlock_name))
+	#check if multiple unlocks// unlock the first one
+	if len(unlock_name) > 1:
+		for unl in range(len(unlock_name)):
+			quick_print(unlock_name[unl])
+			if unlock_name == "No Unlock possible":
+				next_unlock = "No unlock"
+				return next_unlock
+			else:   #here put num_unlock
+				
+				if num_unlocked(unlock_name[unl]) > 0:
+					next_unlock = unlock_name[unl]
+				else:
+					next_unlock = "No unlock"
+	else:
+		if unlock(unlock_name):
+			next_unlock = unlock_name
+		else:
+			next_unlock = "No unlock"
+	return next_unlock
+
+#unlock if posisble//or else print how many do you need
+def unlock_process(next_unlock, farming_item, item_count):
+	if next_unlock == "No unlock":
+		quick_print("Nothing else can be Unlocked with", farming_item, "anymore!")
+		items_required = "No unlock"
+		return items_required
+	elif not unlock(next_unlock):
+		items_required = get_cost(next_unlock)
+		quick_print(items_required)
+		update_item_required = items_required - item_count
+		quick_print("Number of", farming_item, "required for next Unlock:", update_item_required)
+	else:
+		unlock(next_unlock)
+		quick_print("############# UNLOCKED NEW LEVEL #################")
+		quick_print(next_unlock, "has been Unlocked")
+		if not unlock(next_unlock):
+			items_required = "No unlock"
+		return items_required
+		
+	return items_required
+ 
+
+
