@@ -1,0 +1,35 @@
+#move drone
+clear()	
+#want to move to (5,3)
+x1 = 5
+y1 = 3
+	
+x2 = get_pos_x()
+y2 = get_pos_y()
+
+quick_print(x2, y2)
+
+while  x1 != x2 or y1 != y2:
+	if x1 != x2:
+		if x1 > x2:
+			move(East)
+		elif x1 < x2:
+			move(West)
+		else:
+			pass
+			
+	if y1 != y2:
+		if y1 > y2:
+			move(North)
+		elif y1 < y2:
+			move(South)
+		else:
+			pass
+	x2 = get_pos_x()
+	y2 = get_pos_y()
+
+quick_print(x2, y2)
+
+
+	
+
