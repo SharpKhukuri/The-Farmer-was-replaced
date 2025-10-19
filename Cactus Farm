@@ -1,0 +1,31 @@
+import Tools
+Tools.move_origin()
+
+def temp_cactus():
+		for i in range(get_world_size()):
+			for j in range(get_world_size()):
+				harvest()
+				plant(Entities.Cactus)
+				move(North)
+			move(East)
+		return
+		
+while True:
+	a = 0 
+	while a < 3:
+		quick_print(a)
+		for i in range(get_world_size()):
+			for j in range(get_world_size()):
+				x = measure()
+				ye = measure(East)
+				yw = measure(West)
+				
+				if x < yw:
+					swap(West)
+				if x > ye:
+					swap(East)
+				
+				move(North)
+			move(East)
+			a += 1
+	temp_cactus()
