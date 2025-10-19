@@ -11,24 +11,33 @@ It is a hands on experience on what you learn throught tutorials <br/>
 <br/>
 
 <p align="center">
+
+# Current Status <br/>
+
+</p>
+
+
+
+<p align="center">
+  
 # To Do List <br/>
 </p>
 
-[ ] Unlocking automation (POSTPONED: Need to create better logic)<br/>
-[X] merge clearing and tilling(WIP)<br/>
-[ ] automate what to farm<br/>
-[ ] unlock entities to max<br/>
-[X] Fastest way to a coordinate<br/>
-[ ] Farm pumpkin efficiently<br/>
-[ ] Farm Sunflower efficiently<br/>
-[ ] Farm Cactus efficiently<br/>
-[ ] get bones<br/>
-[ ] Farm Fertilizer efficiently<br/>
-[ ] Unlock maze and get coins<br/>
-[ ] unlock multiple drones<br/>
+- [ ] Unlocking automation (POSTPONED: Need to create better logic)<br/>
+- [X] merge clearing and tilling(WIP)<br/>
+- [ ] automate what to farm<br/>
+- [ ] unlock entities to max<br/>
+- [X] Fastest way to a coordinate<br/>
+- [ ] Farm pumpkin efficiently<br/>
+- [ ] Farm Sunflower efficiently<br/>
+- [ ] Farm Cactus efficiently<br/>
+- [ ] get bones<br/>
+- [ ] Farm Fertilizer efficiently<br/>
+- [ ] Unlock maze and get coins<br/>
+- [ ] unlock multiple drones<br/>
 <br/>
 <br/>
 <br/>
 
 # ACHIEVEMENTS<br/>
-[ ] swap water level above .50<br/>
+- [x] swap water level above .50<br/>
