@@ -1,0 +1,70 @@
+#Dictionary of unlocking
+def autounlocking_item(farming_item):
+	tampas = "Empty"
+	if farming_item != Items.Power:
+		unlock_dict = {Items.hay:[Unlocks.Speed, Unlocks.Trees],
+			Items.Wood:[Unlocks.Carrots, Unlocks.Watering, Unlocks.Fertilizer],
+			Items.Carrot:Unlocks.Pumpkins, 
+			Items.Pumpkin:[Unlocks.Expand, Unlocks.Cactus],
+			Items.Cactus:[Unlocks.Mazes, Unlocks.Dinosaurs],
+			Items.Bone:Unlocks.Polyculture,
+			Items.Gold:Unlocks.Megafarm,
+		}
+		tampas = unlock_dict[farming_item]
+		quick_print(tampas)
+
+	else:
+		tampas = "No Unlock possible"
+	quick_print(tampas)
+	return tampas
+	
+#Dictionary of Entities and Items
+def pick_items(a):
+	items_pick = {
+		Entities.Grass:Items.Hay,
+		Entities.Tree:Items.Wood,
+		Entities.Bush:Items.Wood,
+		Entities.Carrot:Items.Carrot,
+		Entities.Pumpkin:Items.Pumpkin,
+		Entities.Cactus:Items.Cactus,
+		Entities.Sunflower:Items.Power,
+	}
+	chosen_item = items_pick[a]
+	return chosen_item
+
+def unlock_level(next_unlock):
+	level_unlock = {
+		Unlocks.Speed:5,
+		Unlocks.Grass:10,
+		Unlocks.Expand:9,
+		Unlocks.Carrots:10,
+		Unlocks.Watering:9,
+		Unlocks.Trees:10,
+		Unlocks.Fertilizer:4,
+		Unlocks.Pumpkins:10,
+		Unlocks.Mazes:6,
+		Unlocks.Cactus:6,
+		Unlocks.Polyculture:5,
+		Unlocks.Megafarm:5,
+		Unlocks.Dinosaurs:6,
+	}
+	
+	return
+
+
+def unlock_list():
+	unlock_list = [Unlocks.Speed,
+		Unlocks.Grass,
+		Unlocks.Expand,
+		Unlocks.Carrots,
+		Unlocks.Watering,
+		Unlocks.Trees,
+		Unlocks.Fertilizer,
+		Unlocks.Pumpkins,
+		Unlocks.Mazes,
+		Unlocks.Cactus,
+		Unlocks.Polyculture,
+		Unlocks.Megafarm,
+		Unlocks.Dinosaurs,
+	]
+	return
