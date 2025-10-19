@@ -1,0 +1,8 @@
+if can_harvest():	
+	harvest()
+
+plant(Entities.Tree)
+use_item(Items.Fertilizer)
+quick_print(get_entity_type())
+if can_harvest():	
+	harvest()
